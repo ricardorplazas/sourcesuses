@@ -10,7 +10,8 @@
     border-radius: 5px;
     border: 1px solid var(--lightgray);
     box-sizing: border-box;
-    height: 250px;
+    width: 100%;
+    aspect-ratio: 1.5;
     margin: 0.5em 0;
     position: relative;
     overflow: hidden;
