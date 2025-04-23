@@ -52,7 +52,7 @@ export default (() => {
           <span><a href="https://camargomau.com/">Articles</a></span>
           <span><a href="/Sciujo/MAC/MAC">Notes</a></span>
           <span><a href="/Sciujo/Sciujo">Models</a></span>
-          <span><a href="/Lingvujo/Lingvujo">Mindmap</a></span>
+          <span><a href="/graph">Mindmap</a></span>
           {/* Add back other links if needed */}
         </div>
 
