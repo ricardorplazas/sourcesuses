@@ -1,6 +1,6 @@
 ---
-title: Welcome to Quartz
+title: Welcome to Sources & Uses
 ---
 
-This is a blank Quartz installation.
-See the [documentation](https://quartz.jzhao.xyz) for how to get started.
+This is a btest version of my private equity study notes.
+See the an example note for a [Leveraged Buyout], to test how this system works.
