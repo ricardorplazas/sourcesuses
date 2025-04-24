@@ -1,4 +1,5 @@
 @use "./base.scss";
+@use "variables" as *; // Make variables like $sidePanelWidth, $tablet, $mobile available
 
 // put your custom CSS here!
 // Apply Rock Salt to all headings and the LinksHeader links 
@@ -11,13 +12,39 @@ h1, h2, h3, h4, h5, h6,
 
 
 //Fixing the header in space
-header {
-    position: fixed;
-    top: 0;
-    background-color: var(--light);
-    flex-grow: 1;
+header { 
+    position: fixed; // Or fixed - use the one that was working before
+    top: 2rem;
+    margin-top: 0;
+    z-index: 1000;          
+    background-color: var(--light); 
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); 
+    box-sizing: border-box;
+    // Remove any previous padding if offsets define edges now
+    // padding: 0 1rem; 
+  
+    // --- Add/Modify these properties for Width/Position ---
+    // Default (Desktop): Align with center column using sidebar width offsets
+    left: $sidePanelWidth;
+    right: $sidePanelWidth;
+    width: auto; // Let left/right offsets determine the width
+  
+    // Tablet: Align with center column (only left sidebar exists)
+    @media all and ($tablet) {
+      left: $sidePanelWidth;
+      right: 1rem; // Use body padding value for right offset
+      width: auto;
+    }
+  
+    // Mobile: Span full width (no sidebars pushing it in)
+    @media #{$mobile} {
+      left: 0;
+      right: 0;
+      width: 100%;
+    }
+    // --- End Width/Position ---
   }
-
+  
 
 // Changes in sizing to the recent notes
 .recent-notes {

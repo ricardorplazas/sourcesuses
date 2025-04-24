@@ -22,8 +22,8 @@ export default {
       quote: "Quote",
     },
     backlinks: {
-      title: "Backlinks",
-      noBacklinksFound: "No backlinks found",
+      title: "Related Concepts",
+      noBacklinksFound: "No related conceps found",
     },
     themeToggle: {
       lightMode: "Light mode",
@@ -36,7 +36,7 @@ export default {
       createdWith: "Created with",
     },
     graph: {
-      title: "Graph View",
+      title: "Local Mindmap",
     },
     recentNotes: {
       title: "Recent Notes",

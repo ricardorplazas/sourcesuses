@@ -5,7 +5,11 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [Component.LinksHeader()],
-  afterBody: [Component.Graph() ],
+  afterBody: [Component.Graph(
+    {localGraph: {
+      depth: 2
+    }}
+  ) ],
   footer: Component.Footer(),
 }
 
