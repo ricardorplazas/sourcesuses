@@ -1,3 +1,4 @@
+// quartz/components/styles/graph.scss
 @use "../../styles/variables.scss" as *;
 
 .graph {
@@ -11,11 +12,30 @@
     border: 1px solid var(--lightgray);
     box-sizing: border-box;
     width: 100%;
-    aspect-ratio: 1.5;
+    aspect-ratio: 1.5; // Your current ratio
     margin: 0.5em 0;
-    position: relative;
-    overflow: hidden;
+    position: relative; // Keep relative for absolute children
+    overflow: hidden;   // Keep hidden to clip graph drawing
 
+    // --- ADD STYLES FOR INNER ELEMENTS ---
+    & > .graph-container {
+      // Position container to fill graph-outer
+      position: absolute; 
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; // Make container fill parent height/width
+      display: block; // Ensure it takes space
+
+      & > canvas {
+        width: 100%;
+        height: 100%; // Make canvas fill the container
+        display: block; // Prevent potential extra space below canvas
+      }
+    }
+    // --- END ADDED STYLES ---
+
+    // Icon styles remain the same
     & > .global-graph-icon {
       cursor: pointer;
       background: none;
@@ -32,20 +52,22 @@
       border-radius: 4px;
       background-color: transparent;
       transition: background-color 0.5s ease;
-      cursor: pointer;
+      // cursor: pointer; // Duplicate cursor property removed
       &:hover {
         background-color: var(--lightgray);
       }
     }
   }
 
+  // Global graph modal styles remain the same
   & > .global-graph-outer {
     position: fixed;
     z-index: 9999;
     left: 0;
     top: 0;
     width: 100vw;
-    height: 100%;
+    // aspect-ratio: 1.5; // Aspect ratio likely not needed/desired on full-screen modal wrapper
+    height: 100%; // Use height: 100% for modal wrapper instead of aspect-ratio
     backdrop-filter: blur(4px);
     display: none;
     overflow: hidden;

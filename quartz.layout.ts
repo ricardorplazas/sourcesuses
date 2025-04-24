@@ -28,8 +28,15 @@ export const defaultContentPageLayout: PageLayout = {
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
-    Component.MobileOnly(Component.Search()),
-    Component.MobileOnly(Component.Darkmode()),
+    Component.MobileOnly(Component.Flex({
+      components: [
+        {
+          Component: Component.Search(),
+          grow: true, // Optional: allows search bar to take up available space
+        },
+        { Component: Component.Darkmode() },
+      ],
+    }),),
     Component.Explorer(),
   ],
   right: [
