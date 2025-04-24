@@ -1,50 +1,130 @@
 @use "./base.scss";
+@use "sass:map"; // *** ADD THIS LINE ***
 @use "variables" as *; // Make variables like $sidePanelWidth, $tablet, $mobile available
 
-// put your custom CSS here!
-// Apply Rock Salt to all headings and the LinksHeader links 
+// --- Global Font Override ---
 h1, h2, h3, h4, h5, h6,
-#links-header a { // Target links inside your specific header component
+#links-header a { // Apply Rock Salt to headings and header links
   font-family: 'Rock Salt', cursive;
-  font-weight: 400; // Rock Salt only has regular weight (400)
-                    // Force this weight to avoid unwanted browser bolding
+  font-weight: 400; 
 }
 
-
-//Fixing the header in space
-header { 
-    position: fixed; // Or fixed - use the one that was working before
-    top: 2rem;
-    margin-top: 0;
-    z-index: 1000;          
-    background-color: var(--light); 
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); 
-    box-sizing: border-box;
-    // Remove any previous padding if offsets define edges now
-    // padding: 0 1rem; 
-  
-    // --- Add/Modify these properties for Width/Position ---
-    // Default (Desktop): Align with center column using sidebar width offsets
-    left: $sidePanelWidth;
-    right: $sidePanelWidth;
-    width: auto; // Let left/right offsets determine the width
-  
-    // Tablet: Align with center column (only left sidebar exists)
-    @media all and ($tablet) {
-      left: $sidePanelWidth;
-      right: 1rem; // Use body padding value for right offset
-      width: auto;
-    }
-  
-    // Mobile: Span full width (no sidebars pushing it in)
-    @media #{$mobile} {
-      left: 0;
-      right: 0;
-      width: 100%;
-    }
-    // --- End Width/Position ---
+// --- Header Height Variable ---
+:root {
+    // Adjust based on inspection!
+    --header-height: 3.8rem; 
   }
   
+  // --- Override #quartz-body Grid Layout ---
+  // Use a specific selector to override base.scss if possible, e.g. body > #quartz-root > #quartz-body
+  // Using just #quartz-body for simplicity here
+  #quartz-body { // Or maybe .page > #quartz-body
+    display: grid;
+    // Desktop Columns
+    grid-template-columns: #{$sidePanelWidth} minmax(0, 1fr) #{$sidePanelWidth}; // Use 1fr for auto center
+    // Rows: Header | Content | Footer
+    grid-template-rows: auto minmax(0, 1fr) auto; 
+    // Define Named Areas including 3 header slots
+    grid-template-areas: 
+        "header-left  header-center header-right"
+        "left         center      right"       
+        "footer       footer      footer"; // Assuming footer still spans      
+    column-gap: map.get($desktopGrid, columnGap); // Use map.get safely now
+    row-gap: map.get($desktopGrid, rowGap);    
+    min-height: 100vh; // Ensure grid takes full height
+    box-sizing: border-box;
+  
+    // Responsive Grid Overrides
+    @media all and ($tablet) {
+      grid-template-columns: #{$sidePanelWidth} minmax(0, 1fr); // Tablet columns
+      grid-template-areas: 
+        "header-left  header-center" // Tablet header areas
+        "left         center"       
+        "left         right"        
+        "footer       footer";      
+      column-gap: map.get($tabletGrid, columnGap); 
+      row-gap: map.get($tabletGrid, rowGap);    
+    }
+    @media all and ($mobile) {
+      grid-template-columns: minmax(0, 1fr); // Mobile single column
+      grid-template-areas: 
+        "header-left" // Use header-left for full width mobile header
+        "left"        // Mobile sidebar area (often for hamburger button)
+        "center"     
+        "right"       // Mobile right content (usually hidden)
+        "footer";     
+       column-gap: map.get($mobileGrid, columnGap); 
+       row-gap: map.get($mobileGrid, rowGap);    
+    }
+  
+    // Apply padding for non-desktop views if needed (might conflict with full width header)
+    // @media all and not ($desktop) { padding: 0 1rem; } // Reconsider if needed
+  }
+  
+  // --- Style the main <header> tag ---
+  header { 
+    // Make it span ALL THREE designated header grid areas
+    grid-area: header-left / header-left / header-right / header-right; 
+    
+    // Make the header ITSELF a grid matching the columns below it
+    display: grid;
+    grid-template-columns: #{$sidePanelWidth} minmax(0, 1fr) #{$sidePanelWidth}; // Match parent columns
+    column-gap: map.get($desktopGrid, columnGap); // Match parent gap
+    align-items: center; // Vertically center items within the header row
+    
+    // Apply fixed positioning (sticky is harder with grid area spanning)
+    position: fixed; // Or sticky
+  top: 0;
+  z-index: 1000;          
+  background-color: var(--light); 
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); 
+  box-sizing: border-box;
+  
+  // --- ADD/MODIFY These for Centering & Width ---
+  max-width: calc(#{map.get($breakpoints, desktop)} + 300px); // Match .page max-width
+  margin-left: auto;  // Center the header block
+  margin-right: auto; // Center the header block
+  left: 0; // Needed for margin:auto with fixed/sticky
+  right: 0; // Needed for margin:auto with fixed/sticky
+  width: 100%; // Allow it to span full width *before* max-width applies
+  // --- End Centering & Width ---
+
+  // --- Keep Internal Grid for Content Alignment ---
+  display: grid;
+  // Columns should still match the page grid columns for alignment
+  grid-template-columns: #{$sidePanelWidth} minmax(0, 1fr) #{$sidePanelWidth}; 
+  column-gap: map.get($desktopGrid, columnGap); 
+  align-items: center; 
+  min-height: var(--header-height); 
+  padding: 0; // Remove padding, use grid gap + padding on children
+  
+  // --- Remove Responsive left/right/width overrides ---
+  /* @media all and ($tablet) { ... } */ // Max-width handles tablet centering
+  @media #{$mobile} {
+     // On mobile, revert to full width
+     max-width: none; 
+     left: 0;
+     right: 0;
+     width: 100%;
+     margin-left: 0;
+     margin-right: 0;
+     // Adjust internal grid for mobile view if needed
+     grid-template-columns: auto 1fr auto; // Example: Title | Links | Search/Dark
+     padding: 0 1rem; // Add padding back on mobile
+  }
+}
+
+// --- Keep Child Positioning Rules ---
+// These position items *within* the header's internal grid
+header .page-title { grid-column: 1; justify-self: center; padding: 0 0.5rem; }
+header #links-header { grid-column: 2; justify-self: start; padding: 0 0.5rem; }
+header div[data-component="Flex"] { grid-column: 3; justify-self: stretch; padding: 0 0.5rem; /* ... internal flex styles ... */ }
+
+// --- Keep Body Padding (Required for position: fixed header) ---
+body {
+  padding-top: var(--header-height); 
+}
+
 
 // Changes in sizing to the recent notes
 .recent-notes {

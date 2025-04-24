@@ -4,8 +4,18 @@ import * as Component from "./quartz/components"
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
-  header: [Component.LinksHeader()],
-  afterBody: [Component.Graph(
+  header: [
+    Component.PageTitle(), // Item 1 (for Header Left)
+    Component.LinksHeader(), // Item 2 (for Header Center)
+    Component.Flex({ // Item 3 (for Header Right)
+      components: [
+        { Component: Component.Search(), grow: true }, // Search grows within this group
+        { Component: Component.Darkmode() },
+      ]
+    })
+  ],
+  afterBody: [
+    Component.Graph(
     {localGraph: {
       depth: 2
     }}
@@ -25,17 +35,6 @@ export const defaultContentPageLayout: PageLayout = {
     Component.TagList(),
   ],
   left: [
-    Component.PageTitle(),
-    Component.MobileOnly(Component.Spacer()),
-    Component.MobileOnly(Component.Flex({
-      components: [
-        {
-          Component: Component.Search(),
-          grow: true, // Optional: allows search bar to take up available space
-        },
-        { Component: Component.Darkmode() },
-      ],
-    }),),
     Component.RecentNotes({ 
       title: "Recent Articles",
       limit: 5,
@@ -53,15 +52,6 @@ export const defaultContentPageLayout: PageLayout = {
     }),
   ],
   right: [
-    Component.Flex({
-      components: [
-        {
-          Component: Component.Search(),
-          grow: true, // Optional: allows search bar to take up available space
-        },
-        { Component: Component.Darkmode() },
-      ],
-    }),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],
