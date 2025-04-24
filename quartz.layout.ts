@@ -37,7 +37,21 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),),
-    Component.Explorer(),
+    Component.RecentNotes({ 
+      title: "Recent Articles",
+      limit: 5,
+      filter: (f) => f.slug!.startsWith("Articles/"), // Adjust path if needed
+    }),
+    Component.RecentNotes({ 
+      title: "Recent Notes",
+      limit: 5,
+      filter: (f) => f.slug!.startsWith("Notes/"), // Adjust path if needed
+    }),
+    Component.RecentNotes({ 
+      title: "Recent Models",
+      limit: 5,
+      filter: (f) => f.slug!.startsWith("Models/"), // Adjust path if needed
+    }),
   ],
   right: [
     Component.Flex({
@@ -69,7 +83,15 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer(),
+    Component.RecentNotes({ 
+      title: "Recent Articles", limit: 5, filter: (f) => f.slug!.startsWith("Articles/")
+    }),
+    Component.RecentNotes({ 
+      title: "Recent Notes", limit: 5, filter: (f) => f.slug!.startsWith("Notes/")
+    }),
+    Component.RecentNotes({ 
+      title: "Recent Models", limit: 5, filter: (f) => f.slug!.startsWith("Models/")
+    }),
   ],
   right: [],
 }
