@@ -3,6 +3,7 @@
 @use "variables" as *; // Make variables like $sidePanelWidth, $tablet, $mobile available
 
 /* --- Global Font Override ---
+-- readd for signature on content--
  h1, h2, h3, h4, h5, h6,
  #links-header a { // Apply Custom Font to headings and header links
   font-family: 'Mrs Saint Delafield', cursive;
