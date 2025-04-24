@@ -125,6 +125,23 @@ body {
   padding-top: var(--header-height); 
 }
 
+#quartz-body .sidebar {
+    // Keep sticky positioning relative to scroll container
+    position: sticky; 
+    // Start sticking below the header bar
+    top: var(--header-height) !important; // Keep this override
+    // Adjust height to fill remaining viewport below header
+    height: calc(100vh - var(--header-height)) !important; // Keep this override
+  
+    // --- ADD/MODIFY Padding ---
+    // Use header height for top padding, keep existing L/R/B padding (e.g., 2rem)
+    padding: var(--header-height) 2rem 2rem 2rem !important; // Adjust 2rem if your theme uses different L/R/B padding
+    box-sizing: border-box; // Ensure padding is included correctly
+  
+    // Ensure internal scrolling is enabled
+    overflow-y: auto; 
+  }
+
 
 // Changes in sizing to the recent notes
 .recent-notes {
