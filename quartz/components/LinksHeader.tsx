@@ -1,77 +1,95 @@
 // quartz/components/LinksHeader.tsx
 import { QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import style from "./styles/linksHeader.scss"
-import { useState, useEffect } from "preact/hooks" 
+// NOTE: No useEffect/useState needed for this approach
 
-export default (() => {
-  function LinksHeader(_props: QuartzComponentProps) { 
-    // Add a state variable (even if we don't display it)
-    const [listenerAttached, setListenerAttached] = useState(false);
+// Define the client-side script as a string
+const script = `
+function setupMindmapLinkForComponent() {
+  const mindmapLink = document.getElementById('mindmap-nav-link');
+  const globalGraphButton = document.querySelector('.graph .global-graph-icon'); 
 
-    useEffect(() => {
-      console.log("LinksHeader useEffect: Running effect..."); // Log start
-      const mindmapLink = document.getElementById("mindmap-nav-link");
-      console.log("LinksHeader useEffect: Found link:", mindmapLink);
+  console.log('[LinksHeader Simplified] setupMindmapLinkForComponent called.'); // Added marker
+  console.log('[LinksHeader Simplified] Link:', mindmapLink);
+  console.log('[LinksHeader Simplified] Button:', globalGraphButton);
 
-      if (!mindmapLink) {
-         console.error("LinksHeader useEffect: Mindmap link ID not found.");
-         return;
-      }
-
-      const handleClick = (event: MouseEvent) => {
-        console.log("LinksHeader handleClick: 'Mindmap' link clicked!"); 
+  if (mindmapLink && globalGraphButton) {
+    // Check if listener is already attached (using a unique attribute)
+    // This prevents adding it multiple times if this function somehow runs again
+    if (!mindmapLink.dataset.simplifiedListenerAttached) { 
+      
+      const handleClick = (event) => {
         event.preventDefault(); 
-        console.log("LinksHeader handleClick: Default navigation prevented.");
+        event.stopPropagation(); 
+
+        console.log('[LinksHeader Simplified] Mindmap link clicked! Simulating click shortly...');
         
-        const globalGraphButton = document.querySelector(".graph .global-graph-icon") as HTMLButtonElement | null;
-        console.log("LinksHeader handleClick: Found button:", globalGraphButton);
-        
-        if (globalGraphButton) {
-          try {
-            console.log("LinksHeader handleClick: Simulating click on graph button..."); 
-            globalGraphButton.click(); 
-            console.log("LinksHeader handleClick: Graph button click simulated.");
-          } catch (e) {
-            console.error("LinksHeader handleClick: Error during button click simulation:", e); 
-          }
+        if (globalGraphButton) { 
+          setTimeout(() => {
+              try {
+                const clickEvent = new MouseEvent('click', {
+                  view: window,
+                  bubbles: true,    
+                  cancelable: true  
+                });
+                console.log('[LinksHeader Simplified] Dispatching click event on graph button...');
+                globalGraphButton.dispatchEvent(clickEvent); 
+                console.log('[LinksHeader Simplified] Graph button click event dispatched.'); 
+              } catch (e) {
+                console.error('[LinksHeader Simplified] Error during button click dispatch:', e); 
+              }
+          }, 50); // Keep small delay
         } else {
-          console.warn("LinksHeader handleClick: Global graph button not found.");
+           console.warn('[LinksHeader Simplified] Graph button not found when dispatching!');
         }
       };
 
-      // Check if already attached (using state could also work, but data attribute is simpler for cleanup)
-      if (!mindmapLink.dataset.listenerAttached) {
-          mindmapLink.addEventListener("click", handleClick);
-          mindmapLink.dataset.listenerAttached = 'true'; // Mark as attached
-          setListenerAttached(true); // *** Set state when attaching ***
-          console.log("LinksHeader useEffect: Listener attached."); 
-      } else {
-           console.log("LinksHeader useEffect: Listener already attached.");
-      }
+      mindmapLink.addEventListener('click', handleClick);
+      // Use a unique attribute name here
+      mindmapLink.dataset.simplifiedListenerAttached = 'true'; 
+      console.log('[LinksHeader Simplified] Listener attached.');
+    } else {
+        console.log('[LinksHeader Simplified] Listener was already attached.'); 
+    }
+  } else {
+     if (!mindmapLink) console.warn('[LinksHeader Simplified] #mindmap-nav-link not found.');
+     if (!globalGraphButton) console.warn('[LinksHeader Simplified] .graph .global-graph-icon not found.');
+  }
+}
 
+// --- Script Execution ---
+// Set up the link ONLY when the initial DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', setupMindmapLinkForComponent);
+} else {
+  // DOM is already loaded, run setup now
+  setupMindmapLinkForComponent(); 
+}
 
-      // Cleanup function
-      return () => {
-        if (mindmapLink.dataset.listenerAttached) {
-            mindmapLink.removeEventListener("click", handleClick);
-            delete mindmapLink.dataset.listenerAttached; 
-            setListenerAttached(false); // *** Set state on cleanup ***
-            console.log("LinksHeader useEffect: Listener removed."); 
-        }
-      };
-    }, []); // Empty dependency array
+// --- REMOVED 'nav' event listener ---
+// document.addEventListener('nav', setupMindmapLinkForComponent); 
+`;
 
+// Define the Quartz component
+export default (() => {
+  function LinksHeader(_props: QuartzComponentProps) {
+    // Render the HTML structure for the links
     return (
-      // Render normally
-      <div id="links-header"> 
-        {/* Optionally display state for debug: <p>{listenerAttached.toString()}</p> */}
+      <div id="links-header">
         <span><a href="/Articles/">Articles</a></span>
         <span><a href="/Models/">Models</a></span>
         <span><a href="/Notes/">Notes</a></span>
-        <span><a href="#" id="mindmap-nav-link">Mindmap</a></span> 
+        <span>
+          {/* Mindmap link with specific ID and href="#" */}
+          <a href="#" id="mindmap-nav-link">Mindmap</a>
+        </span>
       </div>
     )
   }
-  LinksHeader.css = style
-  return LinksHeader
+
+  // Attach the CSS and the JavaScript string to the component
+  LinksHeader.css = style;
+  LinksHeader.afterDOMLoaded = script; // This script runs after the DOM is loaded
+
+  return LinksHeader;
 }) satisfies QuartzComponentConstructor
