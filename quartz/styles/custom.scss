@@ -2,12 +2,13 @@
 @use "sass:map"; // *** ADD THIS LINE ***
 @use "variables" as *; // Make variables like $sidePanelWidth, $tablet, $mobile available
 
-// --- Global Font Override ---
-h1, h2, h3, h4, h5, h6,
-#links-header a { // Apply Rock Salt to headings and header links
-  font-family: 'Rock Salt', cursive;
-  font-weight: 400; 
-}
+/* --- Global Font Override ---
+ h1, h2, h3, h4, h5, h6,
+ #links-header a { // Apply Custom Font to headings and header links
+  font-family: 'Mrs Saint Delafield', cursive;
+  font-weight: 400
+  ; 
+ } */
 
 // --- Header Height Variable ---
 :root {
@@ -144,23 +145,23 @@ body {
 
 
 // Changes in sizing to the recent notes
-.recent-notes {
+ .recent-notes {
     & > h3 {
       margin: 0.5rem 0 0 0;
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
   
     & > ul.recent-ul {
       list-style: none;
       margin-top: 0.2rem;
       padding-left: 0;
-      font-size: 0.75rem;
+      font-size: 0.9rem;
   
       & > li {
         margin: 0.2rem 0;
         .section > .desc > h3 > a {
           background-color: transparent;
-          font-size: 0.75rem;
+          font-size: 1rem;
         }
   
         .section > .meta {
@@ -169,5 +170,5 @@ body {
         }
       }
     }
-  }
+  } 
   
