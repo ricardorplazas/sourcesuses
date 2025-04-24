@@ -12,7 +12,7 @@ h1, h2, h3, h4, h5, h6,
 // --- Header Height Variable ---
 :root {
     // Adjust based on inspection!
-    --header-height: 3.8rem; 
+    --header-height: 2rem; 
   }
   
   // --- Override #quartz-body Grid Layout ---
@@ -71,7 +71,7 @@ h1, h2, h3, h4, h5, h6,
     grid-template-columns: #{$sidePanelWidth} minmax(0, 1fr) #{$sidePanelWidth}; // Match parent columns
     column-gap: map.get($desktopGrid, columnGap); // Match parent gap
     align-items: center; // Vertically center items within the header row
-    
+    margin: 0;
     // Apply fixed positioning (sticky is harder with grid area spanning)
     position: fixed; // Or sticky
   top: 0;
@@ -118,7 +118,7 @@ h1, h2, h3, h4, h5, h6,
 // These position items *within* the header's internal grid
 header .page-title { grid-column: 1; justify-self: center; padding: 0 0.5rem; }
 header #links-header { grid-column: 2; justify-self: start; padding: 0 0.5rem; }
-header div[data-component="Flex"] { grid-column: 3; justify-self: stretch; padding: 0 0.5rem; /* ... internal flex styles ... */ }
+header div[data-component="Flex"] { grid-column: 3; justify-self: stretch; padding: 0 0.5rem; background-color: var(--light); /* ... internal flex styles ... */ }
 
 // --- Keep Body Padding (Required for position: fixed header) ---
 body {
