@@ -6,12 +6,7 @@ export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [Component.LinksHeader()],
   afterBody: [Component.Graph() ],
-  footer: Component.Footer({
-    links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
-    },
-  }),
+  footer: Component.Footer(),
 }
 
 // components for pages that display a single page (e.g. a single note)
@@ -43,14 +38,14 @@ export const defaultContentPageLayout: PageLayout = {
       filter: (f) => f.slug!.startsWith("Articles/"), // Adjust path if needed
     }),
     Component.RecentNotes({ 
-      title: "Recent Notes",
-      limit: 5,
-      filter: (f) => f.slug!.startsWith("Notes/"), // Adjust path if needed
-    }),
-    Component.RecentNotes({ 
       title: "Recent Models",
       limit: 5,
       filter: (f) => f.slug!.startsWith("Models/"), // Adjust path if needed
+    }),
+    Component.RecentNotes({ 
+      title: "Recent Notes",
+      limit: 5,
+      filter: (f) => f.slug!.startsWith("Notes/"), // Adjust path if needed
     }),
   ],
   right: [
@@ -87,10 +82,10 @@ export const defaultListPageLayout: PageLayout = {
       title: "Recent Articles", limit: 5, filter: (f) => f.slug!.startsWith("Articles/")
     }),
     Component.RecentNotes({ 
-      title: "Recent Notes", limit: 5, filter: (f) => f.slug!.startsWith("Notes/")
+      title: "Recent Models", limit: 5, filter: (f) => f.slug!.startsWith("Models/")
     }),
     Component.RecentNotes({ 
-      title: "Recent Models", limit: 5, filter: (f) => f.slug!.startsWith("Models/")
+      title: "Recent Notes", limit: 5, filter: (f) => f.slug!.startsWith("Notes/")
     }),
   ],
   right: [],

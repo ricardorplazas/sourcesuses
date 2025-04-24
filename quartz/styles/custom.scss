@@ -1,3 +1,10 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+// Apply Rock Salt to all headings and the LinksHeader links 
+h1, h2, h3, h4, h5, h6,
+#links-header a { // Target links inside your specific header component
+  font-family: 'Rock Salt', cursive;
+  font-weight: 400; // Rock Salt only has regular weight (400)
+                    // Force this weight to avoid unwanted browser bolding
+}

@@ -11,9 +11,9 @@ export default (() => {
       <div className="links-header-component-wrapper">
         {/* Links Container */}
         <div id="links-header">
-          <span><a href="https://camargomau.com/">Articles</a></span>
-          <span><a href="/Sciujo/MAC/MAC">Notes</a></span>
-          <span><a href="/Sciujo/Sciujo">Models</a></span>
+          <span><a href="/Articles/">Articles</a></span>
+          <span><a href="/Models/">Models</a></span>
+          <span><a href="/Notes">Notes</a></span>
           <span><a href="/graph">Mindmap</a></span> 
         </div>
         {/* HR */}

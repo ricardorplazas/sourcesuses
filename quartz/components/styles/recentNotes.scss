@@ -6,13 +6,15 @@
 
   & > ul.recent-ul {
     list-style: none;
-    margin-top: 1rem;
+    margin-top: 0.2rem;
     padding-left: 0;
+    font-size: 0.75rem;
 
     & > li {
-      margin: 1rem 0;
+      margin: 0.2rem 0;
       .section > .desc > h3 > a {
         background-color: transparent;
+        font-size: 0.75rem;
       }
 
       .section > .meta {
