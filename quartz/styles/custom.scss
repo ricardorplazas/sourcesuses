@@ -145,33 +145,44 @@ body {
   }
 
 // Privay Policy position to the right
+// Make the footer a flex container to align text and links list
 footer {
   display: flex;
-  flex-wrap: nowrap; // Prevent wrapping on wider screens
+  flex-wrap: nowrap; // Keep items on one line on wider screens
   justify-content: space-between; // Puts text left, links list right
   align-items: center; // Vertically align text and links list
   gap: 1rem; // Gap between text and links list if they wrap
 
-  // Allow wrapping only on smaller screens if needed
+  // Allow wrapping and center on mobile
   @media #{$mobile} {
       flex-wrap: wrap;
-      justify-content: center; // Center items when wrapped
+      justify-content: center; 
   }
-}
+} 
 
-// Reset margin on the paragraph inside the footer
+// Reset margin and prevent shrinking on the paragraph inside the footer
 footer p {
     margin: 0; // Remove default paragraph margins
-}
+    flex-shrink: 0; // Prevent text from shrinking
+    // Optionally add a max-width to prevent it taking too much space
+    // max-width: 60%; // Example: Adjust percentage as needed
+} 
 
-// Ensure the list itself is flex to arrange links horizontally
+// Ensure the list itself is flex
 footer ul {
   display: flex;
-  flex-wrap: wrap; // Allow links to wrap if needed
+  flex-wrap: wrap; // Allow links inside the list to wrap if needed
   gap: 1rem; // Space between footer links
   list-style: none; // Remove default bullet points
   padding: 0; // Remove default padding
   margin: 0; // Remove default margin
+  flex-shrink: 0; // Prevent the list itself from shrinking
+  // margin-left: auto; // Use space-between on parent footer
+} 
+
+// --- ADD THIS RULE TO HIDE THE FOOTER HR ---
+footer > hr {
+  display: none; // Hide the horizontal rule inside the footer
 }
 
 
