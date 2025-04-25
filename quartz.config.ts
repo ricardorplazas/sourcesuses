@@ -13,10 +13,11 @@ const config: QuartzConfig = {
     enableSPA: true,
     enablePopovers: true,
     analytics: {
-      provider: "plausible",
+      provider: "clarity",
+      projectId: "r9kdi5n2xo"
     },
     locale: "en-US",
-    baseUrl: "https://ricardorplazas.github.io/sourcesuses/",
+    baseUrl: "sourcesuses.com",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
     theme: {
