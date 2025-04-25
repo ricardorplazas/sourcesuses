@@ -5,15 +5,15 @@
 // --- GLOBAL STYLES & CONFIGURATION ---
 
 /* --- Global Font Override --- (Optional - Kept as commented out) */
-/*
+
 -- readd for signature on content--
- h1, h2, h3, h4, h5, h6,
+ //h1, h2, h3, h4, 
+ h5, h6,
  #links-header a { // Apply Custom Font to headings and header links
-  font-family: 'Mrs Saint Delafield', cursive;
+  font-family: 'Rock Salt', cursive;
   font-weight: 400
   ;
  }
-*/
 
 // --- Header Height Variable --- (Used by non-mobile styles)
 :root {
