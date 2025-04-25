@@ -20,7 +20,11 @@ export const sharedPageComponents: SharedLayout = {
       depth: 2
     }}
   ) ],
-  footer: Component.Footer(),
+  footer: Component.Footer({
+    links: {
+      "Privacy Policy": "/privacy-policy"
+    }
+}),
 }
 
 // components for pages that display a single page (e.g. a single note)

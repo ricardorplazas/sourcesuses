@@ -144,6 +144,36 @@ body {
     overflow-y: auto; 
   }
 
+// Privay Policy position to the right
+footer {
+  display: flex;
+  flex-wrap: nowrap; // Prevent wrapping on wider screens
+  justify-content: space-between; // Puts text left, links list right
+  align-items: center; // Vertically align text and links list
+  gap: 1rem; // Gap between text and links list if they wrap
+
+  // Allow wrapping only on smaller screens if needed
+  @media #{$mobile} {
+      flex-wrap: wrap;
+      justify-content: center; // Center items when wrapped
+  }
+}
+
+// Reset margin on the paragraph inside the footer
+footer p {
+    margin: 0; // Remove default paragraph margins
+}
+
+// Ensure the list itself is flex to arrange links horizontally
+footer ul {
+  display: flex;
+  flex-wrap: wrap; // Allow links to wrap if needed
+  gap: 1rem; // Space between footer links
+  list-style: none; // Remove default bullet points
+  padding: 0; // Remove default padding
+  margin: 0; // Remove default margin
+}
+
 
 // Changes in sizing to the recent notes
  .recent-notes {
