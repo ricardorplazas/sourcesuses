@@ -5,14 +5,14 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [
-    Component.PageTitle(), // Item 1 (for Header Left)
-    Component.LinksHeader(), // Item 2 (for Header Center)
-    Component.Flex({ // Item 3 (for Header Right)
+    Component.DesktopOnly(Component.PageTitle()), // Item 1 (for Header Left)
+    Component.DesktopOnly(Component.LinksHeader()), // Item 2 (for Header Center)
+    Component.DesktopOnly(Component.Flex({ // Item 3 (for Header Right)
       components: [
         { Component: Component.Search(), grow: true }, // Search grows within this group
         { Component: Component.Darkmode() },
       ]
-    })
+    }))
   ],
   afterBody: [
     Component.Graph(
@@ -40,21 +40,31 @@ export const defaultContentPageLayout: PageLayout = {
     Component.TagList(),
   ],
   left: [
-    Component.RecentNotes({ 
+    Component.MobileOnly(Component.PageTitle()),
+    Component.MobileOnly(Component.Spacer()),
+    Component.MobileOnly(Component.Flex({
+      components: [
+        {
+          Component: Component.Search(),
+          grow: true,
+        },
+        { Component: Component.Darkmode() },]})),
+    Component.MobileOnly(Component.Explorer()),
+    Component.DesktopOnly(Component.RecentNotes({ 
       title: "Recent Articles",
       limit: 5,
       filter: (f) => f.slug!.startsWith("Articles/"), // Adjust path if needed
-    }),
-    Component.RecentNotes({ 
+    })),
+    Component.DesktopOnly(Component.RecentNotes({ 
       title: "Recent Models",
       limit: 5,
       filter: (f) => f.slug!.startsWith("Models/"), // Adjust path if needed
-    }),
-    Component.RecentNotes({ 
+    })),
+    Component.DesktopOnly(Component.RecentNotes({ 
       title: "Recent Notes",
       limit: 5,
       filter: (f) => f.slug!.startsWith("Notes/"), // Adjust path if needed
-    }),
+    })),
   ],
   right: [
     Component.DesktopOnly(Component.TableOfContents()),
@@ -77,15 +87,15 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.RecentNotes({ 
+    Component.DesktopOnly(Component.RecentNotes({ 
       title: "Recent Articles", limit: 5, filter: (f) => f.slug!.startsWith("Articles/")
-    }),
-    Component.RecentNotes({ 
+    })),
+    Component.DesktopOnly(Component.RecentNotes({ 
       title: "Recent Models", limit: 5, filter: (f) => f.slug!.startsWith("Models/")
-    }),
-    Component.RecentNotes({ 
+    })),
+    Component.DesktopOnly(Component.RecentNotes({ 
       title: "Recent Notes", limit: 5, filter: (f) => f.slug!.startsWith("Notes/")
-    }),
+    })),
   ],
   right: [],
 }

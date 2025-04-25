@@ -1,241 +1,209 @@
-@use "./base.scss";
-@use "sass:map"; // *** ADD THIS LINE ***
-@use "variables" as *; // Make variables like $sidePanelWidth, $tablet, $mobile available
+@use "./base.scss"; // Base styles, including default mobile layout
+@use "sass:map";
+@use "variables" as *; // Your theme variables
 
-/* --- Global Font Override ---
+// --- GLOBAL STYLES & CONFIGURATION ---
+
+/* --- Global Font Override --- (Optional - Kept as commented out) */
+/*
 -- readd for signature on content--
  h1, h2, h3, h4, h5, h6,
  #links-header a { // Apply Custom Font to headings and header links
   font-family: 'Mrs Saint Delafield', cursive;
   font-weight: 400
-  ; 
- } */
+  ;
+ }
+*/
 
-// --- Header Height Variable ---
+// --- Header Height Variable --- (Used by non-mobile styles)
 :root {
-    // Adjust based on inspection!
-    --header-height: 4rem; 
-  }
-  
-  // --- Override #quartz-body Grid Layout ---
-  // Use a specific selector to override base.scss if possible, e.g. body > #quartz-root > #quartz-body
-  // Using just #quartz-body for simplicity here
-  #quartz-body { // Or maybe .page > #quartz-body
+  // Adjust based on inspection!
+  --header-height: 4rem;
+}
+
+// ===========================================================
+// --- CUSTOM DESKTOP & TABLET STYLES ---
+// Rules within this block apply ONLY to non-mobile screens,
+// overriding base.scss where necessary for the custom layout.
+// Mobile screens will ignore this block and use base.scss + component CSS.
+// ===========================================================
+@media not all and ($mobile) {
+
+  // --- Custom #quartz-body Grid Layout (Non-mobile ONLY) ---
+  #quartz-body {
     display: grid;
-    // Desktop Columns
-    grid-template-columns: #{$sidePanelWidth} minmax(0, 1fr) #{$sidePanelWidth}; // Use 1fr for auto center
-    // Rows: Header | Content | Footer
-    grid-template-rows: auto minmax(0, 1fr) auto; 
-    // Define Named Areas including 3 header slots
-    grid-template-areas: 
-        "header-left  header-center header-right"
-        "left         center      right"       
-        "footer       footer      footer"; // Assuming footer still spans      
-    column-gap: map.get($desktopGrid, columnGap); // Use map.get safely now
-    row-gap: map.get($desktopGrid, rowGap);    
-    min-height: 100vh; // Ensure grid takes full height
+    grid-template-columns: #{$sidePanelWidth} minmax(0, 1fr) #{$sidePanelWidth};
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      "header-left  header-center header-right"
+      "left         center      right"
+      "footer       footer      footer";
+    column-gap: map.get($desktopGrid, columnGap);
+    row-gap: map.get($desktopGrid, rowGap);
+    min-height: 100vh;
     box-sizing: border-box;
-  
-    // Responsive Grid Overrides
+
+    // Tablet Grid Override (Non-mobile ONLY)
     @media all and ($tablet) {
-      grid-template-columns: #{$sidePanelWidth} minmax(0, 1fr); // Tablet columns
-      grid-template-areas: 
-        "header-left  header-center" // Tablet header areas
-        "left         center"       
-        "left         right"        
-        "footer       footer";      
-      column-gap: map.get($tabletGrid, columnGap); 
-      row-gap: map.get($tabletGrid, rowGap);    
+      grid-template-columns: #{$sidePanelWidth} minmax(0, 1fr);
+      grid-template-areas:
+        "header-left  header-center"
+        "left         center"
+        "left         right"
+        "footer       footer";
+      column-gap: map.get($tabletGrid, columnGap);
+      row-gap: map.get($tabletGrid, rowGap);
     }
-    @media all and ($mobile) {
-      grid-template-columns: minmax(0, 1fr); // Mobile single column
-      grid-template-areas: 
-        "header-left" // Use header-left for full width mobile header
-        "left"        // Mobile sidebar area (often for hamburger button)
-        "center"     
-        "right"       // Mobile right content (usually hidden)
-        "footer";     
-       column-gap: map.get($mobileGrid, columnGap); 
-       row-gap: map.get($mobileGrid, rowGap);    
-    }
-  
-    // Apply padding for non-desktop views if needed (might conflict with full width header)
-    // @media all and not ($desktop) { padding: 0 1rem; } // Reconsider if needed
-  }
-  
-  // --- Style the main <header> tag ---
-  header { 
-    // Make it span ALL THREE designated header grid areas
-    grid-area: header-left / header-left / header-right / header-right; 
-    
-    // Make the header ITSELF a grid matching the columns below it
-    display: grid;
+  } // End #quartz-body non-mobile styles
+
+  // --- Custom Fixed Header Styles (Non-mobile ONLY) ---
+  header {
+    grid-area: header-left / header-left / header-right / header-right; // Span header grid areas
+    display: grid; // Use grid for internal alignment
     grid-template-columns: #{$sidePanelWidth} minmax(0, 1fr) #{$sidePanelWidth}; // Match parent columns
     column-gap: map.get($desktopGrid, columnGap); // Match parent gap
-    align-items: center; // Vertically center items within the header row
+    align-items: center;
     margin: 0;
-    // Apply fixed positioning (sticky is harder with grid area spanning)
-    position: fixed; // Or sticky
+    position: fixed; // Make header fixed
     top: 0;
-    z-index: 1000;          
-    background-color: var(--light); 
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); 
-  box-sizing: border-box;
-  
-  // --- ADD/MODIFY These for Centering & Width ---
-  max-width: calc(#{map.get($breakpoints, desktop)} + 300px); // Match .page max-width
-  margin-left: auto;  // Center the header block
-  margin-right: auto; // Center the header block
-  left: 0; // Needed for margin:auto with fixed/sticky
-  right: 0; // Needed for margin:auto with fixed/sticky
-  width: 100%; // Allow it to span full width *before* max-width applies
-  // --- End Centering & Width ---
+    left: 0; // Required for fixed centering with margin:auto
+    right: 0; // Required for fixed centering with margin:auto
+    z-index: 1000;
+    background-color: var(--light);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    max-width: calc(#{map.get($breakpoints, desktop)} + 300px); // Centering width
+    margin-left: auto; // Center the header block
+    margin-right: auto; // Center the header block
+    width: 100%; // Allow span before max-width
+    min-height: var(--header-height);
+    padding: 0; // Use grid gap for internal spacing
+  } // End header non-mobile styles
 
-  // --- Keep Internal Grid for Content Alignment ---
-  display: grid;
-  // Columns should still match the page grid columns for alignment
-  grid-template-columns: #{$sidePanelWidth} minmax(0, 1fr) #{$sidePanelWidth}; 
-  column-gap: map.get($desktopGrid, columnGap); 
-  align-items: center; 
-  min-height: var(--header-height); 
-  padding: 0; // Remove padding, use grid gap + padding on children
-  
-  // --- Remove Responsive left/right/width overrides ---
-  /* @media all and ($tablet) { ... } */ // Max-width handles tablet centering
-  @media #{$mobile} {
-     // On mobile, revert to full width
-     max-width: none; 
-     left: 0;
-     right: 0;
-     width: 100%;
-     margin-left: 0;
-     margin-right: 0;
-     // Adjust internal grid for mobile view if needed
-     grid-template-columns: auto 1fr auto; // Example: Title | Links | Search/Dark
-     padding: 0 1rem; // Add padding back on mobile
-  }
-}
+  // --- Custom Header Child Positioning (Non-mobile ONLY) ---
+  // Positions items within the custom header's internal grid
+  header .page-title { grid-column: 1; justify-self: center; padding: 0 0.5rem; }
+  header #links-header { grid-column: 2; justify-self: start; padding: 0 0.5rem; }
+  header div[data-component="Flex"] { grid-column: 3; justify-self: stretch; padding: 0 0.5rem; background-color: var(--light); }
 
-// --- Keep Child Positioning Rules ---
-// These position items *within* the header's internal grid
-header .page-title { grid-column: 1; justify-self: center; padding: 0 0.5rem; }
-header #links-header { grid-column: 2; justify-self: start; padding: 0 0.5rem; }
-header div[data-component="Flex"] { grid-column: 3; justify-self: stretch; padding: 0 0.5rem; background-color: var(--light); /* ... internal flex styles ... */ }
-
-// --- Keep Body Padding (Required for position: fixed header) ---
-body {
-  padding-top: var(--header-height); 
-}
-
-#quartz-body .sidebar {
-    // Keep sticky positioning relative to scroll container
-    position: sticky; 
-    // Start sticking below the header bar
-    top: var(--header-height) !important; // Keep this override
-    // Adjust height to fill remaining viewport below header
-    height: calc(100vh - var(--header-height)) !important; // Keep this override
-  
-    // --- ADD/MODIFY Padding ---
-    // Use header height for top padding, keep existing L/R/B padding (e.g., 2rem)
-    padding: var(--header-height) 2rem 2rem 2rem !important; // Adjust 2rem if your theme uses different L/R/B padding
-    box-sizing: border-box; // Ensure padding is included correctly
-  
-    // Ensure internal scrolling is enabled
-    overflow-y: auto; 
+  // --- Body Padding for Custom Fixed Header (Non-mobile ONLY) ---
+  body {
+    padding-top: var(--header-height); // Add space for the fixed header
   }
 
-// Privay Policy position to the right
-// Make the footer a flex container to align text and links list
+  // --- Custom Sidebar Sticky/Padding Behavior (Non-mobile ONLY) ---
+  // Overrides base.scss sidebar styles for desktop/tablet sticky behavior
+  #quartz-body .sidebar {
+    position: sticky;
+    top: var(--header-height) !important; // Stick below fixed header
+    height: calc(100vh - var(--header-height)) !important; // Fill remaining height
+    padding: var(--header-height) 2rem 2rem 2rem !important; // Custom padding with space for header
+    box-sizing: border-box;
+    overflow-y: auto; // Enable scrolling within sidebar
+    // Ensure correct flex settings for desktop sidebars (override potential mobile base styles)
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; // Restore desired desktop gap
+    align-items: initial; // Restore default alignment
+    width: auto;
+    margin: 0;
+  } // End custom .sidebar non-mobile styles
+
+} // --- END SCOPE FOR NON-MOBILE STYLES ---
+// ===========================================================
+
+
+// --- FOOTER STYLES --- (Apply Globally)
 footer {
   display: flex;
-  flex-wrap: nowrap; // Keep items on one line on wider screens
-  justify-content: space-between; // Puts text left, links list right
-  align-items: center; // Vertically align text and links list
-  gap: 1rem; // Gap between text and links list if they wrap
+  flex-wrap: nowrap; // Default to nowrap
+  justify-content: space-between; // Space out content and links
+  align-items: center;
+  gap: 1rem;
 
-  // Allow wrapping and center on mobile
+  // Mobile adjustment for footer content
   @media #{$mobile} {
-      flex-wrap: wrap;
-      justify-content: center; 
+    flex-wrap: wrap; // Allow wrapping on mobile
+    justify-content: center; // Center items when wrapped
   }
-} 
-
-// Reset margin and prevent shrinking on the paragraph inside the footer
-footer p {
-    margin: 0; // Remove default paragraph margins
-    flex-shrink: 0; // Prevent text from shrinking
-    // Optionally add a max-width to prevent it taking too much space
-    // max-width: 60%; // Example: Adjust percentage as needed
-} 
-
-// Ensure the list itself is flex
-footer ul {
-  display: flex;
-  flex-wrap: wrap; // Allow links inside the list to wrap if needed
-  gap: 1rem; // Space between footer links
-  list-style: none; // Remove default bullet points
-  padding: 0; // Remove default padding
-  margin: 0; // Remove default margin
-  flex-shrink: 0; // Prevent the list itself from shrinking
-  // margin-left: auto; // Use space-between on parent footer
-} 
-
-// --- ADD THIS RULE TO HIDE THE FOOTER HR ---
-footer > hr {
-  display: none; // Hide the horizontal rule inside the footer
 }
 
+footer p { // Style paragraph within footer
+  margin: 0;
+  flex-shrink: 0; // Prevent text shrinking
+}
 
-// Changes in sizing to the recent notes
- .recent-notes {
-    & > h3 {
-      margin: 0.5rem 0 0 0;
-      font-size: 1.1rem;
-    }
-  
-    & > ul.recent-ul {
-      list-style: none;
-      margin-top: 0.2rem;
-      padding-left: 0;
-      font-size: 0.9rem;
-  
-      & > li {
-        margin: 0.2rem 0;
-        .section > .desc > h3 > a {
-          background-color: transparent;
-          font-size: 1rem;
-        }
-  
-        .section > .meta {
-          margin: 0 0 0.5rem 0;
-          opacity: 0.6;
-        }
+footer ul { // Style link list within footer
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-shrink: 0; // Prevent list shrinking
+}
+
+footer > hr { // Hide default horizontal rule in footer
+  display: none;
+}
+// --- End Footer Styles ---
+
+
+// --- RECENT NOTES COMPONENT STYLES --- (Apply Globally)
+.recent-notes {
+  & > h3 { // Style the title
+    margin: 0.5rem 0 0 0;
+    font-size: 1.1rem;
+  }
+
+  & > ul.recent-ul { // Style the list
+    list-style: none;
+    margin-top: 0.2rem;
+    padding-left: 0;
+    font-size: 0.9rem;
+
+    & > li { // Style list items
+      margin: 0.2rem 0;
+      .section > .desc > h3 > a { // Style link within item
+        background-color: transparent;
+        font-size: 1rem;
+      }
+
+      .section > .meta { // Style metadata within item
+        margin: 0 0 0.5rem 0;
+        opacity: 0.6;
       }
     }
-  } 
-  
+  }
+}
+// --- End Recent Notes Styles ---
 
-  // --- Hide Left Sidebar ONLY on mobile view ---
-@media #{$mobile} { // Or use '@media all and ($mobile)' 
 
-  // Target the left sidebar container
-  #quartz-body .sidebar.left {
-    display: none !important; // Hide the entire left sidebar column
+// ========================================
+// --- MOBILE-SPECIFIC OVERRIDES ---
+// Rules here ONLY apply on mobile screens
+// ========================================
+@media #{$mobile} {
+
+  // Explicitly hide #links-header on mobile
+  // (Fallback incase DesktopOnly wrapper in layout fails)
+  #links-header {
+    display: none !important;
   }
 
-  // Ensure body padding is removed on mobile (if added for fixed header)
-  body {
-    padding-top: 0; 
+  // --- Override conflicting base.scss styles for mobile .sidebar.left ---
+  // Force the styles needed for explorer.scss sticky top bar to work correctly
+  // Use direct child selector '>' if .sidebar.left is direct child of #quartz-body
+  #quartz-body > .sidebar.left {
+    // --- Force Explorer's requirements ---
+    position: sticky !important;      // Override base.scss 'position: initial'
   }
-
-  // Ensure desktop header is hidden on mobile
-  header { 
-    display: none; 
+  // --- End .sidebar.left override ---
+  .explorer button.mobile-explorer {
+    position: relative;
+    // z-index: 101; // This is already set by explorer.scss, but position:relative enables it properly
   }
+} // End mobile overrides
+// ========================================
 
-  // Ensure mobile header (if defined in LinksHeader.scss) is visible
-  .mobile-top-bar { // Or selector for your mobile header
-      display: flex; // Or block, depending on its style
-  }
-
-} // End @media mobile
+// Removed large block of commented-out previous attempts here for clarity.
