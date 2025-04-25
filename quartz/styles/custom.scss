@@ -214,3 +214,28 @@ footer > hr {
     }
   } 
   
+
+  // --- Hide Left Sidebar ONLY on mobile view ---
+@media #{$mobile} { // Or use '@media all and ($mobile)' 
+
+  // Target the left sidebar container
+  #quartz-body .sidebar.left {
+    display: none !important; // Hide the entire left sidebar column
+  }
+
+  // Ensure body padding is removed on mobile (if added for fixed header)
+  body {
+    padding-top: 0; 
+  }
+
+  // Ensure desktop header is hidden on mobile
+  header { 
+    display: none; 
+  }
+
+  // Ensure mobile header (if defined in LinksHeader.scss) is visible
+  .mobile-top-bar { // Or selector for your mobile header
+      display: flex; // Or block, depending on its style
+  }
+
+} // End @media mobile

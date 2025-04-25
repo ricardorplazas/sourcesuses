@@ -91,7 +91,7 @@ const config: QuartzConfig = {
       Plugin.Assets(),
       Plugin.Static(),
       Plugin.NotFoundPage(),
-      Plugin.CNAME(),
+      // Plugin.CNAME(),
       // Comment out CustomOgImages to speed up build time
       // Plugin.CustomOgImages(),
     ],
