@@ -1,0 +1,89 @@
+// quartz/components/styles/cookieConsent.scss
+@use "../../styles/variables" as *; // Use theme variables
+
+.cookie-consent-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: color-mix(in srgb, var(--light) 95%, black); // Slightly darker/lighter than base
+  color: var(--dark);
+  padding: 1rem 1.5rem;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 2000; // Ensure it's above most other content
+  box-sizing: border-box;
+
+  // Use flexbox for layout
+  display: flex;
+  flex-wrap: wrap; // Allow wrapping on small screens
+  justify-content: space-between; // Push text left, buttons right
+  align-items: center;
+  gap: 1rem; // Gap between text and buttons
+
+  p {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    flex-grow: 1; // Allow text to take available space
+    max-width: 70%; // Prevent text taking TOO much space on wide screens
+
+    @media #{$mobile} {
+      max-width: 100%; // Allow full width on mobile
+      text-align: center;
+      margin-bottom: 0.75rem; // Add space below text on mobile when buttons wrap
+    }
+
+    a {
+      color: var(--secondary); // Use theme link color
+      text-decoration: underline;
+      font-weight: $semiBoldWeight;
+      &:hover {
+        color: var(--tertiary);
+      }
+    }
+  }
+
+  .consent-buttons {
+    display: flex;
+    // Remove gap if only one button
+    // gap: 0.75rem; 
+    flex-shrink: 0; // Prevent buttons shrinking too much
+    // Center the single button
+    justify-content: center; 
+
+     @media #{$mobile} {
+       width: 100%; // Make button group full width on mobile
+       justify-content: center; // Center button on mobile
+     }
+  }
+
+  // Style for the single OK button
+  button {
+    padding: 0.5rem 1.5rem; // Make OK button slightly wider maybe
+    font-size: 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid var(--secondary);
+    background-color: var(--secondary);
+    color: var(--light); 
+    font-weight: $semiBoldWeight;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+      background-color: var(--tertiary);
+      border-color: var(--tertiary);
+    }
+
+    // Remove reject button styles
+    /* &.reject { ... } */
+  }
+}
+
+// --- Body Scroll Lock ---
+// Ensure this class is defined (can be here or in _custom.scss)
+// NOTE: Scroll lock isn't strictly necessary for an informational banner
+// but doesn't hurt to leave the style definition.
+body.lock-scroll {
+  overflow: hidden;
+}
+

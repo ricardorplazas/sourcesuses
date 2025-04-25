@@ -19,7 +19,8 @@ export const sharedPageComponents: SharedLayout = {
     {localGraph: {
       depth: 2
     }}
-  ) ],
+  ),
+  Component.CookieConsent() ],
   footer: Component.Footer({
     links: {
       "Privacy Policy": "/privacy-policy"

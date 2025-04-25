@@ -23,6 +23,7 @@ import Comments from "./Comments"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
 import LinksHeader from "./LinksHeader"
+import CookieConsent from "./CookieConsent"
 
 export {
   ArticleTitle,
@@ -50,4 +51,5 @@ export {
   Flex,
   ConditionalRender,
   LinksHeader,
+  CookieConsent,
 }
