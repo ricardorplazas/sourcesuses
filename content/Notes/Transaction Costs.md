@@ -20,6 +20,6 @@ In a typical LBO model, transaction costs are modeled in two main areas:
     - Financing fees are capitalized and amortized over the term of the debt, typically modeled in the [[debt schedule]].
 
 ## Key Considerations
-- Financing fees affect both the [[balance sheet]] and [[cash flow statement]].
-- Expensed transaction costs reduce [[equity value]] and thus impact [[IRR]].
+- Financing fees affect both the [[Balance Sheet]] and [[Cash Flow Statement]].
+- Expensed transaction costs reduce [[Equity Value]] and thus impact [[IRR]].
 - Assumptions must be made regarding fee percentages (e.g. 1.5% of debt raised) or flat amounts (e.g. €3m total advisory costs).

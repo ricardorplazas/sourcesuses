@@ -7,9 +7,9 @@ They are essential for estimating [[interest expense]], modeling [[debt schedule
 ## Typical Assumptions
 
 Debt assumptions vary by deal and lender appetite, but commonly include:
-- **[[Debt Instruments]]**: The types of debt used (e.g., [[Term Loan]] A, [[Term Loan]] B, [[revolving credit facility]], [[subordinated debt]], or [[bonds]]).
+- **[[Debt Instruments]]**: The types of debt used (e.g., [[Term Loan]] A, [[Term Loan]] B, [[revolving credit facility]], [[subordinated debt]], or [[Bonds]]).
 - **Sizing**: The amount of each tranche raised, often based on a multiple of EBITDA or a targeted [[leverage ratio]].
-- **[[Interest Rates]]**: Usually expressed as a [[base rate]] (e.g., SOFR) plus a margin; may be fixed or floating.
+- **[[Interest Rates]]**: Usually expressed as a [[Base Rate]] (e.g., SOFR) plus a margin; may be fixed or floating.
 - **Cash vs. [[PIK Interest]]**: Whether interest is paid in cash or capitalized to the loan balance (common for [[subordinated debt|subordinated]] or [[mezzanine debt]]).
 - **Amortization Profile**: Scheduled [[principal repayment|principal repayments]], typically minimal for Term Loan B and more structured for Term Loan A.
 - **[[revolving credit facility|Revolver Assumptions]]**: Availability, drawn amount at close (if any), and undrawn [[Commitment Fee|commitment fees]].

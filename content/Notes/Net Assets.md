@@ -16,8 +16,8 @@ Net Assets are a key metric in determining the baseline value of a business. The
 ## Modeling in Transaction Analysis
 In transaction models, Net Assets are typically calculated as follows:
 1. **Start with the [[Balance Sheet]]**: Obtain the reported figures for total assets and total liabilities.
-2. **Adjustments for Fair Value**: Revalue [[Assets|assets]] and [[Liabilities|liabilities]] to their fair market value to reflect the true economic position.
-3. **Exclusion of Non-Core Items**: Sometimes non-recurring or non-operational items are excluded to focus on the core operating assets and liabilities.
-4. **Derivation of Net Identifiable Assets**: The adjusted net asset value becomes the Net Identifiable Assets Valuation, a critical input for further calculations such as determining goodwill or equity step-up in a transaction.
+2. **Adjustments for Fair Value**: Revalue [[Balance Sheet Assets|Assets]] and [[Liabilities|liabilities]] to their fair market value to reflect the true economic position.
+3. **[[Non-Recurring Items|Exclusion of Non-Core Items]]**: Sometimes non-recurring or non-operational items are excluded to focus on the core operating assets and liabilities.
+4. **Derivation of [[Net Identifiable Assets]]**: The adjusted net asset value becomes the [[Net Identifiable Assets]] Valuation, a critical input for further calculations such as determining goodwill or equity step-up in a transaction.
 
 Net Assets provide a clear picture of the company's existing equity and serve as a benchmark for assessing changes post-transaction, including the impact of strategic adjustments, financing decisions, or operational improvements.

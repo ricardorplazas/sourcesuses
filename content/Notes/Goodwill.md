@@ -1,36 +1,35 @@
 > [!abstract] Definition
-> Goodwill is the premium paid over the fair value of a company's [[Net Assets|net identifiable assets]]. It reflects intangible elements like brand reputation, customer loyalty, and expected [[synergies]] from the acquisition.
+> Goodwill is an [[Intangible Assets|intangible asset]] representing the premium paid in an [[Mergers & Acquisitions (M&A)|acquisition]] over the [[Fair Value]] of the target company's identifiable [[Net Assets]] (identifiable [[Balance Sheet Assets|Assets]] less identifiable [[Liabilities]]). It is recorded on the acquirer's [[Balance Sheet]].
 
-Goodwill arises when an acquisition involves paying more than the sum of the identifiable [[Net Assets]]. In private equity transactions, it indicates that the acquirer believes there are additional future economic benefits that cannot be directly measured through traditional accounting metrics.
+## Represents
+* It captures non-identifiable intangible value expected to contribute to future earnings, such as:
+    * Brand reputation and recognition 
+    * Customer relationships and loyalty 
+    * Skilled workforce / Intellectual capital
+    * Expected [[Synergies]] from the combination 
 
----
+## Creation
+* Goodwill arises **only** through [[Mergers & Acquisitions (M&A)]] transactions. 
+* Calculation: $Goodwill = Purchase \ Price \ - \ Fair \ Value \ of \ Identifiable \ Net \ Assets$ 
 
-## Accounting Treatment and Impairment
-
-- **Initial Recognition**: Goodwill is recorded as an [[asset]] on the post-acquisition [[Balance Sheet|balance sheet]].
-- **Subsequent Testing**: Under [[IFRS]], instead of systematic [[amortization]], goodwill is subject to periodic impairment tests to ensure its carrying value remains justified. Under [[HGB]], goodwill gets amortised.
-- **Investor Impact**: Impairment losses can reduce earnings, affecting the overall return profile of the investment.  
-
----
-
-## Modeling
-
-In transaction models, goodwill is typically calculated and analyzed as follows:
-1) **Purchase Price Determination**: Start with the agreed acquisition value, as discussed in [[Entry Valuation]] and [[Enterprise Value to Equity Value Bridge]]
-2) **(+) [[Net Assets|Net Identifiable Assets Valuation]]**: Add the fair value of the company’s identifiable net assets — this usually reflects the current [[Equity Value|equity value]] as recorded on the [[Balance Sheet|balance sheet]].
-3) **(-) Existing Goodwill**: Subtract any pre-existing goodwill already recorded on the target’s balance sheet to prevent double counting of intangible value.
-4) **(=) Step Up of Equity**: The resulting figure represents the equity step-up, which is the premium paid over the existing book value of [[Net Assets|net assets]].
-5) **(-) [[Write-up of Assets]]**: Deduct any write-ups of assets. These adjustments reflect the fair value increase of certain assets over their historical book values and are accounted for separately. In [[Leveraged Buyout|models]] these are typically are calculated as a % of the step up of equity
-6) **(+) [[Deferred Tax Liability]]**: Add any deferred tax liabilities that arise due to the temporary differences between the revalued (written-up) asset amounts and their tax bases. Typically this is calculated as the [[Write-up of Assets|asset write-up]] multiplied with the [[tax rate]].
-7) **(=) Pro Forma Goodwill**: The final balance after these adjustments, representing the goodwill that will be recorded on the post-transaction (pro forma) balance sheet.
-
-Goodwill serves as a key metric to evaluate the premium paid for non-quantifiable assets and anticipated [[synergies]], offering insights into the strategic rationale behind the transaction.
+## Subsequent Accounting Treatment (US GAAP / IFRS)
+* **No Amortization**: Unlike most other intangible assets, Goodwill is **not** amortized systematically over time. 
+* **Impairment Testing**: Goodwill must be tested for [[Impairment]] at least annually (or more frequently if indicators of impairment exist). This test assesses whether the fair value of the reporting unit (to which goodwill is assigned) is less than its carrying amount on the Balance Sheet. 
+* **Impairment Loss**: If the carrying amount exceeds the fair value, an [[Impairment]] loss is recognized as an expense on the [[Income Statement]], reducing [[Net Income]]. This loss reduces the Goodwill asset balance on the Balance Sheet. Impairment losses cannot be reversed later if value recovers.
+* **Investor Impact**: Impairment losses directly reduce reported earnings and can negatively impact investor perception and the investment's return profile.
 
 ---
-## Example Calculation
+## Modeling in M&A
+In transaction models, goodwill is calculated post-acquisition:
+1)  **Purchase Equity Value**: Start with the price paid for the target's equity (from [[Enterprise Value to Equity Value Bridge]]).
+2)  **(-) Target Book Value of Equity**: Subtract the target's existing [[Shareholders' Equity]] (or [[Net Assets]]) from their [[Balance Sheet]].
+3)  **(-) Existing Goodwill**: Subtract any goodwill already on the target's balance sheet.
+4)  **(=) Excess Purchase Price over Book Value**
+5)  **(-) [[Write-up of Assets]]**: Subtract write-ups of identifiable assets to their fair value.
+6)  **(+) [[Deferred Tax Liability]] Creation**: Add the [[Deferred Tax Liability (DTL)|DTL]] created from the asset write-ups ($DTL = Write \ Up \times Tax \ Rate$). 
+7)  **(=) Pro Forma Goodwill**: The result is the new goodwill created in the transaction.
 
-![[Goodwill Calculation.png]]
+This calculation isolates the premium paid over the *fair value* of identifiable net assets.
 
-Where:
-- Acquisition EqV is coming from the [[Enterprise Value to Equity Value Bridge]]
-- Existing EqV and existing Goodwill are coming from the [[Balance Sheet|balance sheet]]
+---
+See also: [[Intangible Assets]], [[Balance Sheet]], [[Mergers & Acquisitions (M&A)]], [[Impairment]], [[Fair Value]], [[Net Assets]]
