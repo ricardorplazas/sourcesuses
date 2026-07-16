@@ -1,0 +1,86 @@
+@use "../../styles/variables" as *;
+
+.diagnostic {
+  margin: 1rem 0 2rem;
+}
+
+.diagnostic-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  background: var(--dark);
+  color: var(--light);
+  padding: 0.8rem 1rem;
+  border-radius: 0.75rem 0.75rem 0 0;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 0.6rem;
+  height: 0.6rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  background: #55c57a;
+}
+
+.diagnostic-panel {
+  border: 1px solid var(--lightgray);
+  border-top: 0;
+  border-radius: 0 0 0.75rem 0.75rem;
+  padding: clamp(1rem, 3vw, 2rem);
+}
+
+.snapshot-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+
+.snapshot-grid div {
+  border: 1px solid var(--lightgray);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+
+.snapshot-grid span,
+.snapshot-grid strong {
+  display: block;
+}
+
+.snapshot-grid span {
+  font-size: 0.75rem;
+  color: var(--darkgray);
+}
+
+.diagnostic fieldset {
+  border: 0;
+  border-bottom: 1px solid var(--lightgray);
+  padding: 1rem 0 1.25rem;
+  margin: 0 0 0.5rem;
+}
+
+.diagnostic legend {
+  font-weight: 700;
+  margin-bottom: 0.65rem;
+}
+
+.diagnostic label {
+  display: block;
+  padding: 0.4rem 0;
+}
+
+.diagnostic input {
+  margin-right: 0.5rem;
+}
+
+@media #{$mobile} {
+  .snapshot-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .diagnostic table {
+    font-size: 0.78rem;
+  }
+}

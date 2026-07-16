@@ -1,41 +1,36 @@
 // quartz/components/styles/linksHeader.scss
-@use "../../styles/variables" as *; 
+@use "../../styles/variables" as *;
 
-// Style the container holding the links
-#links-header {
-  display: flex; 
-  //flex-grow: 1; // Allow it to take space from layout's grow: true
-  flex-wrap: nowrap; // Prevent links from wrapping
-  align-items: center;     // Vertically center links
-  justify-content: flex-end; // Align link group to the left within its space (change if needed)
-  gap: 2.5em; // Space between links (adjust)
-  font-size: 1.0em; // Adjust font size if needed for Rock Salt
-  margin: 0;              
-  padding: 0;             
-  overflow: hidden;       // Hide overflow if links are too wide
-  white-space: nowrap;    // Prevent link text itself from wrapping
+.links-header {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
   box-sizing: border-box;
   width: 100%;
 
-  a { 
-    display: inline-block; 
+  a {
+    display: inline-block;
     color: var(--dark);
-    // Font is applied globally via _custom.scss
     text-decoration: none;
-    padding: 0.2rem 0; 
-  }
-  span { 
-     display: inline-block;
-     margin: 0;
+    padding: 0.35rem 0;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--secondary);
+      text-decoration: underline;
+      text-underline-offset: 0.2rem;
+    }
   }
 }
 
-// --- Mobile Styles: Hide component ---
 @media #{$mobile} {
-  #links-header {
-      // display: none; // Hide if mobile uses separate nav
-      // Or style differently if header is different on mobile
-      justify-content: center; // Example: center on mobile if shown
-      gap: 1em;
+  .links-header {
+    justify-content: center;
+    gap: 1rem;
   }
 }

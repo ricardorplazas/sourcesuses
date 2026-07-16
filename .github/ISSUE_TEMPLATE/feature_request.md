@@ -1,19 +1,23 @@
 ---
-name: Feature request
-about: Suggest an idea or improvement for Quartz
-title: ""
+name: Improvement proposal
+about: Propose a focused improvement to the public garden
+title: "proposal: "
 labels: enhancement
 assignees: ""
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+## User problem
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+Which public-garden user problem would this solve?
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+## Proposed change
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+Describe the smallest useful change.
+
+## Evidence and alternatives
+
+Explain how the need was observed and what simpler alternatives were considered.
+
+## Boundaries
+
+Confirm that the proposal does not place commercial cases, private data, employer materials, credentials, or authenticated product logic in this public repository.

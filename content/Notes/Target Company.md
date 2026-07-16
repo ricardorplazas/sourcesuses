@@ -4,6 +4,7 @@
 The target is the entity whose assets, operations, and potentially liabilities are being evaluated and pursued in a potential transaction. Identifying and analyzing suitable target companies is a core activity in [[Mergers & Acquisitions (M&A)]] and investment processes.
 
 ---
+
 ## Characteristics of an Attractive Target (Especially for Financial Sponsors / LBOs)
 
 While attractiveness depends on the acquirer's strategy, certain traits often make a company a more desirable target, particularly for financial buyers seeking strong returns:
@@ -18,4 +19,5 @@ While attractiveness depends on the acquirer's strategy, certain traits often ma
 8.  **(LBO Specific) Strong Asset Base**: Tangible assets that can be used as collateral to secure acquisition financing ([[Debt]]).
 
 ---
+
 See also: [[Mergers & Acquisitions (M&A)]], [[Leveraged Buyout]], [[Acquirer]], [[Valuation]], [[Due Diligence]], [[Operational Improvement]], [[Exit Strategy]]

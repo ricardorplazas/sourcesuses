@@ -1,0 +1,122 @@
+.validation-hero,
+.conversion-cta {
+  border: 1px solid var(--lightgray);
+  border-radius: 1rem;
+  padding: clamp(1.25rem, 4vw, 3rem);
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--secondary) 10%, var(--light)),
+    var(--light)
+  );
+  margin: 1rem 0 2rem;
+}
+
+.validation-hero h1 {
+  font-size: clamp(2rem, 5vw, 3.75rem);
+  max-width: 18ch;
+  line-height: 1.02;
+  margin: 0.35rem 0 1rem;
+}
+
+.validation-hero p:not(.eyebrow):not(.trust-line) {
+  font-size: 1.15rem;
+  max-width: 65ch;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--secondary);
+  margin: 0;
+}
+
+.hero-actions,
+.diagnostic-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.6rem 1rem;
+  border-radius: 0.45rem;
+  border: 1px solid var(--secondary);
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.button.primary {
+  color: var(--light);
+  background: var(--secondary);
+}
+
+.button.secondary {
+  color: var(--secondary);
+  background: var(--light);
+}
+
+.button:hover,
+.button:focus-visible {
+  filter: brightness(1.1);
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.trust-line,
+.small-print {
+  font-size: 0.82rem;
+  color: var(--darkgray);
+}
+
+.conversion-cta h2 {
+  margin: 0.4rem 0;
+}
+
+.interest-form {
+  border: 1px solid var(--lightgray);
+  border-radius: 0.75rem;
+  padding: clamp(1rem, 3vw, 2rem);
+  margin: 1rem 0 2rem;
+}
+
+.interest-form form,
+.interest-form label:not(.checkbox-label) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.interest-form form {
+  gap: 1rem;
+}
+
+.interest-form input,
+.interest-form select {
+  font: inherit;
+  padding: 0.6rem;
+  border: 1px solid var(--gray);
+  border-radius: 0.35rem;
+  background: var(--light);
+  color: var(--dark);
+}
+
+.interest-form fieldset {
+  border: 1px solid var(--lightgray);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+
+.form-not-configured {
+  border-left: 4px solid #e8a317;
+  padding: 0.25rem 1rem;
+  background: color-mix(in srgb, #e8a317 10%, var(--light));
+}

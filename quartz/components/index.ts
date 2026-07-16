@@ -24,7 +24,12 @@ import Comments from "./Comments"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
 import LinksHeader from "./LinksHeader"
-import CookieConsent from "./CookieConsent"
+import ValidationHero from "./ValidationHero"
+import DecisionDiagnostic from "./DecisionDiagnostic"
+import ConversionCTA from "./ConversionCTA"
+import CaseRoomPrototype from "./CaseRoomPrototype"
+import AddinPrototype from "./AddinPrototype"
+import InterestForm from "./InterestForm"
 
 export {
   ArticleTitle,
@@ -53,5 +58,10 @@ export {
   Flex,
   ConditionalRender,
   LinksHeader,
-  CookieConsent,
+  ValidationHero,
+  DecisionDiagnostic,
+  ConversionCTA,
+  CaseRoomPrototype,
+  AddinPrototype,
+  InterestForm,
 }

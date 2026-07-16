@@ -15,12 +15,12 @@
     aspect-ratio: 1.5; // Your current ratio
     margin: 0.5em 0;
     position: relative; // Keep relative for absolute children
-    overflow: hidden;   // Keep hidden to clip graph drawing
+    overflow: hidden; // Keep hidden to clip graph drawing
 
     // --- ADD STYLES FOR INNER ELEMENTS ---
     & > .graph-container {
       // Position container to fill graph-outer
-      position: absolute; 
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;

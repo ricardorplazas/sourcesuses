@@ -1,5 +1,5 @@
 > [!abstract] Defnition
-**[[Private equity]]** is an **asset class** within [[Private markets]]. It involves investing **long-term capital** in exchange for **ownership stakes** in companies that are **not traded on public exchanges**. Transactions in [[Private markets]] occur privately between parties.
+> **[[Private equity]]** is an **asset class** within [[Private markets]]. It involves investing **long-term capital** in exchange for **ownership stakes** in companies that are **not traded on public exchanges**. Transactions in [[Private markets]] occur privately between parties.
 
 The **core model** for generating returns in private equity involves several steps:
 

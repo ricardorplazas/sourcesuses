@@ -1,40 +1,29 @@
 ---
 name: Bug report
-about: Something about Quartz isn't working the way you expect
-title: ""
+about: Report a reproducible problem in the public Sources & Uses garden
+title: "bug: "
 labels: bug
 assignees: ""
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+## Problem
 
-**To Reproduce**
-Steps to reproduce the behavior:
+Describe what happened and why it matters.
 
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+## Reproduction
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+1.
 
-**Screenshots and Source**
-If applicable, add screenshots to help explain your problem.
+## Expected result
 
-You can help speed up fixing the problem by either
+Describe the expected behaviour.
 
-1. providing a simple reproduction
-2. linking to your Quartz repository where the problem can be observed
+## Environment
 
-**Desktop (please complete the following information):**
+- URL or content page:
+- Browser/device:
+- Revision, if known:
 
-- Quartz Version: [e.g. v4.1.2]
-- `node` Version: [e.g. v18.16]
-- `npm` version: [e.g. v10.1.0]
-- OS: [e.g. iOS]
-- Browser [e.g. chrome, safari]
+## Evidence
 
-**Additional context**
-Add any other context about the problem here.
+Attach screenshots or logs with personal/confidential information removed. Report security issues privately according to `SECURITY.md`.

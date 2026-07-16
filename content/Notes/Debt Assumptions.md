@@ -4,9 +4,11 @@
 They are essential for estimating [[interest expense]], modeling [[debt schedule|debt repayment schedules]], and assessing [[leverage ratio|leverage]] and [[coverage ratio|coverage]] ratios.
 
 ---
+
 ## Typical Assumptions
 
 Debt assumptions vary by deal and lender appetite, but commonly include:
+
 - **[[Debt Instruments]]**: The types of debt used (e.g., [[Term Loan]] A, [[Term Loan]] B, [[revolving credit facility]], [[subordinated debt]], or [[Bonds]]).
 - **Sizing**: The amount of each tranche raised, often based on a multiple of EBITDA or a targeted [[leverage ratio]].
 - **[[Interest Rates]]**: Usually expressed as a [[Base Rate]] (e.g., SOFR) plus a margin; may be fixed or floating.

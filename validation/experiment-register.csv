@@ -1,0 +1,11 @@
+id,hypothesis,primary_metric,pass_threshold,failure_signal,status,decision,evidence_link
+H1,Qualified users will pay for a complete realistic simulation,paid_orders_per_150_qualified_visitors,8,<5 orders,not_started,,
+H2,Full-decision positioning beats European-library positioning,relative_lift_checkout_or_intent,20 percent,No preference with interview support absent,ready,,
+H3,CHF 79 remains viable after quality preview,conversion_ratio_vs_chf59,70 percent,Price halves conversion without contribution gain,not_started,,
+H4,The diagnostic attracts qualified demand,visitor_to_start_and_completion,25 percent start and 50 percent complete,<15 percent start or <30 percent complete,ready,,
+H5,Buyers complete a self-service product,buyer_start_and_debrief,30 percent start and 40 percent debrief,Most collect files only,blocked_case_release,,
+H6,The paid outcome differs from free or AI,unaided_distinctive_outcome,60 percent,Majority say free or AI was sufficient,blocked_beta,,
+H7,Partners distribute economically,tracked_partner_traffic,3 agree and 2 send 20 qualified visitors,Replies without traffic,ready,,
+H8,The add-in changes bundle choice,premium_selection_lift,15 percentage points or 40 percent choose bundle,Interest without paid-choice lift,prototype_ready,,
+H9,The viewer improves experience,task_success_and_negative_feedback,80 percent success and <10 percent strong negative,Support or frustration dominates,prototype_ready,,
+H10,Case production is sustainable,founder_hours_and_defects,<=120 hours and <=10 material defects,>200 hours or unresolved errors,in_progress,,

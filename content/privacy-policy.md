@@ -1,66 +1,59 @@
 ---
 title: Privacy Policy
+description: How the Sources & Uses prelaunch validation site handles information.
 ---
-## Privacy Policy for Sources&Uses
 
-**Effective Date:** April 25, 2025
+# Privacy policy
 
-Welcome to sourcesuses.com (the "Site"). We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our Site. Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.
+- **Effective date:** 16 July 2026
+- **Status:** prelaunch validation site
 
-## Site Disclosure
-We improve our products and advertising by using Microsoft Clarity to see how you use our website. By using our site, you agree that we and Microsoft can collect and use this data. Our privacy statement has more details.
+Sources & Uses is an independent educational project. This policy describes the current static validation site. It will be extended before transmitted forms, email capture, payments, server-side product analytics or paid products are introduced.
 
-## Information We Collect
+## Information intentionally collected
 
-We may collect information about you in a variety of ways. The information we may collect on the Site includes:
+The current site does not provide accounts, payments, newsletters, comments or user uploads. A validation-interest form is present but remains disabled until an approved endpoint, controller contact and retention policy are configured. Sources & Uses does not currently receive names, email addresses, case answers, workbooks or other information directly from that form.
 
-1.  **Interaction Data via Microsoft Clarity:** We partner with Microsoft Clarity to capture how you use and interact with our website through behavioral metrics, heatmaps, and session replay to improve and market our products/services. Website usage data is captured using first and third-party cookies and other tracking technologies to determine the popularity of products/services and online activity. Additionally, we use this information for site optimization, fraud/security purposes, and advertising. For more information about how Microsoft collects and uses your data, visit the [Microsoft Privacy Statement]([https://www.microsoft.com/privacy/privacystatement]).
-2.  **Usage Data:** Information automatically collected by our servers when you access the Site, such as your IP address, browser type, operating system, access times, and the pages you have viewed directly before and after accessing the Site.
-3.  **Cookies and Tracking Technologies:** We may use cookies, web beacons, tracking pixels, and other tracking technologies on the Site to help customize the Site and improve your experience. When you access the Site, your personal information is not collected through the use of tracking technology. Most browsers are set to accept cookies by default. You can usually choose to set your browser to remove or reject browser cookies. Please note that if you choose to remove or reject cookies, this could affect the availability and functionality of the Site.
+Optional analytics and session replay are disabled. The site does not load Microsoft Clarity, Google Analytics, advertising pixels, or another optional analytics service.
 
-## How We Use Your Information
+The site stores the following information locally in the visitor’s browser:
 
-Having accurate information permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via the Site to:
+- a light/dark theme preference;
+- a randomly assigned landing-message variant;
+- up to 100 validation-link click records containing event name, page, variant and time;
+- diagnostic answers, timing and score after completion.
 
-* Analyze usage and trends to improve our website and user experience (primarily via Microsoft Clarity).
-* Monitor and analyze usage and trends to improve the security and operation of the Site.
-* Understand the effectiveness of content.
+These browser-local records are not transmitted to Sources & Uses. Diagnostic users can export their result and remove it by selecting “Reset diagnostic” or clearing site data. The local click records can be removed by clearing site data.
 
-## Cookies and Tracking Technologies
+## Hosting and technical logs
 
-As mentioned, we use cookies and similar technologies, including those set by Microsoft Clarity, to help us understand how our Site is used and improve your experience.
+The static site may be hosted by GitHub Pages. GitHub may process technical request information such as IP address, user agent, requested URL, and timestamps to deliver and secure the service. That processing is governed by GitHub's own terms and privacy documentation.
 
-* **What are Cookies:** Cookies are small text files stored on your device (computer, tablet, mobile phone) when you visit certain web pages.
-* **Our Use of Cookies:** We use cookies to track sessions, understand site usage patterns, and enable features like session replay through Microsoft Clarity.
-* **Managing Cookies:** Most web browsers allow you to control cookies through their settings preferences. However, disabling cookies may limit your use of certain features or functions on our Site. You may need to manage consent for non-essential cookies via a cookie banner or consent management tool, especially if required by laws like GDPR.
+Sources & Uses does not currently receive or combine those hosting logs into visitor profiles.
 
-## Disclosure of Your Information
+## External links
 
-We generally do not share information we collect about you with third parties, except in the following situations:
+Pages may link to third-party websites. Those services apply their own privacy practices when a visitor follows a link.
 
-* **Third-Party Service Providers:** We share data with Microsoft as part of our use of Microsoft Clarity. Microsoft processes this data according to their privacy statement. We may share your information with other third parties that perform services for us or on our behalf, including data analysis, hosting services, and customer service, but only as necessary for them to perform those services.
-* **By Law or to Protect Rights:** If we believe the release of information about you is necessary to respond to legal process, to investigate or remedy potential violations of our policies, or to protect the rights, property, and safety of others, we may share your information as permitted or required by any applicable law, rule, or regulation.
+## Future services
 
-## Security of Your Information
+Before transmitting diagnostic results, enabling the interest form, email marketing, customer accounts, payment processing or server-side product analytics, Sources & Uses will update this policy to identify:
 
-We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.
+- the responsible controller and contact details;
+- the information collected and purpose/legal basis;
+- processors and international transfers;
+- retention periods;
+- consent and withdrawal controls;
+- access, correction, deletion, objection, restriction, and portability rights where applicable.
 
-## Your Privacy Rights
+Optional analytics will not be enabled merely by displaying a notice. Any consent-required technology must remain disabled until the visitor makes an affirmative choice, with rejection and withdrawal available.
 
-Depending on your location, you may have certain rights regarding your personal information under applicable data protection laws (such as GDPR or CCPA/CPRA). These may include the right to access, correct, delete, or restrict the processing of your data, or to opt-out of certain data processing activities. To exercise these rights, please contact us using the contact information provided below.
+## Contact and rights
 
-## Links to Other Websites
+For prelaunch privacy questions, use the contact options published on the repository owner's [GitHub profile](https://github.com/ricardorplazas). A dedicated, working privacy email address must be published before the site is commercially relaunched.
 
-The Site may contain links to other websites. We are not responsible for the content or privacy practices of such other sites. We encourage our users to be aware when they leave our site and to read the privacy statements of any other site that collects personally identifiable information.
+Depending on applicable law, visitors may have rights relating to personal data, including access, correction, deletion, restriction, objection, and complaint to a competent supervisory authority.
 
-## Changes to This Privacy Policy
+## Changes
 
-We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on the Site. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
-
-## Contact Us
-
-If you have questions or comments about this Privacy Policy, please contact us at:
-
-Sources&Uses
-
-privacy@sourcesuses.com
+Material changes will be published on this page with a revised effective date. Historic versions remain available through the public repository history.

@@ -1,5 +1,5 @@
 > [!abstract] Definition
-**[[Private markets]]** are a **segment of financial markets** where investments are made in **assets that are not traded in publicly traded stock exchanges**. Transactions in private markets occur **privately between parties**.
+> **[[Private markets]]** are a **segment of financial markets** where investments are made in **assets that are not traded in publicly traded stock exchanges**. Transactions in private markets occur **privately between parties**.
 
 There are numerous types of **asset classes** that fall into the private markets space. These include:
 

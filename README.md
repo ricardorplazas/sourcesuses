@@ -1,18 +1,64 @@
-# Quartz v4
+# Sources & Uses validation site
 
-> “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
+This repository contains the public Sources & Uses demand-validation site: a learning garden, decision diagnostic and clearly labelled product prototypes.
 
-Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.
-Quartz v4 features a from-the-ground rewrite focusing on end-user extensibility and ease-of-use.
+Sources & Uses is intended to publish independent educational material about private-equity analysis, financial modelling, and investment decisions. It is not affiliated with or endorsed by any employer, investment firm, recruiter, university, or training provider.
 
-🔗 Read the documentation and get started: https://quartz.jzhao.xyz/
+## Repository boundary
 
-[Join the Discord Community](https://discord.gg/cRFFHYye7t)
+This public repository may contain:
 
-## Sponsors
+- public articles and glossary notes;
+- intentionally free educational assets;
+- public product and diagnostic landing pages;
+- the Quartz site implementation.
 
-<p align="center">
-  <a href="https://github.com/sponsors/jackyzha0">
-    <img src="https://cdn.jsdelivr.net/gh/jackyzha0/jackyzha0/sponsorkit/sponsors.svg" />
-  </a>
-</p>
+It must not contain:
+
+- commercial cases or answer keys;
+- customer or candidate information;
+- employer materials or confidential information;
+- real dataroom information or copied interview tests;
+- credentials, payment logic, licence secrets, or private application code.
+
+Paid case authoring and the eventual customer application belong in separate private repositories. The private Case 01 authoring system is local at `../sourcesuses-private` and must not be pushed into this public repository.
+
+## Local development
+
+Requirements:
+
+- Node.js version in [.node-version](.node-version);
+- npm 10.9.2 or later.
+
+Commands:
+
+```sh
+npm ci
+npm run verify
+npm run inventory:content
+npx quartz build --serve
+```
+
+`npm run verify` performs formatting/type checks, tests, public-content and Phase 1 checks, the production build, and a production dependency audit.
+
+## Project structure
+
+- `content/` — published garden content;
+- `quartz/` — Quartz framework and local components;
+- `governance/` — Phase 0 operating boundaries and review records;
+- `diligence/` — product, commercial, and technical diligence;
+- `validation/` — Phase 1 experiments, interview/outreach records and decision gates;
+- `scripts/` — project-specific validation scripts;
+- `docs/` — upstream Quartz technical documentation retained for framework maintenance.
+
+## Tracking and privacy
+
+Optional analytics and session replay are disabled. They must not be enabled until the service, purpose, data flow, consent mechanism, retention, and privacy notice have been approved and implemented together.
+
+## Licensing and attribution
+
+The Quartz software is used under its MIT licence; see [LICENSE.txt](LICENSE.txt). Content and project-specific brand assets are governed by [CONTENT_NOTICE.md](CONTENT_NOTICE.md).
+
+## Current status
+
+See [validation/phase-1-status.md](validation/phase-1-status.md). The free preview is configured for `https://ricardorplazas.github.io/sourcesuses/`. Custom-domain DNS and HTTPS work remain deferred.

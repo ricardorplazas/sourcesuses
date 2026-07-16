@@ -14,7 +14,9 @@ Net Assets are a key metric in determining the baseline value of a business. The
 ---
 
 ## Modeling in Transaction Analysis
+
 In transaction models, Net Assets are typically calculated as follows:
+
 1. **Start with the [[Balance Sheet]]**: Obtain the reported figures for total assets and total liabilities.
 2. **Adjustments for Fair Value**: Revalue [[Balance Sheet Assets|Assets]] and [[Liabilities|liabilities]] to their fair market value to reflect the true economic position.
 3. **[[Non-Recurring Items|Exclusion of Non-Core Items]]**: Sometimes non-recurring or non-operational items are excluded to focus on the core operating assets and liabilities.
